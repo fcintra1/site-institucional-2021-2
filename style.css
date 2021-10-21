@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* Variáveis */
 :root {
   --cor-prim: #F9D84D;
@@ -6,17 +8,19 @@
   --cor-secun-clara: #FD9CA3;
   --cor-fundo: #333333;
   --cor-fundo-clara: #555555;
-  --cor-texto: #CCCCCC;
+  --cor-texto: #EEEEEE;
+  --fonte-texto: 'IBM Plex Sans', sans-serif;
+  --fonte-titulo: 'Playfair Display', serif;
 }
 
 /************* CSS reset **************************/
-* {
-  font-family: Calibri, Arial, sans-serif;
+* { /* Todos os elementos */
+  font-family: var(--fonte-texto);
   padding: 0;
   margin: 0;
   box-sizing: border-box; /* a borda faz parte das dimensões do elemento */
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
+  /*background-color: var(--cor-fundo);
+  color: var(--cor-texto);*/
 }
 /*************************************************/
 header {
@@ -30,14 +34,41 @@ header {
 #img-logo {
   background-color: transparent;
 }
-nav {
+#menu-principal {
   display: flex;
   justify-content: center;  /* centralização horizontal */
   align-items: center;  /* centralização vertical */
   background-color: var(--cor-secun);
   min-height: 25px; /* altura mínima */
   width: 100%;
-  margin: 5px;
+}
+#menu-principal ul { /* Afeta o <ul> dentro de #menu-principal */
+  list-style: none; /* Tira a decoração dos itens da lista */
+  display: flex;  /* Container flex - todos os itens filhos na horizontal por padrão */
+}
+#menu-principal ul li {
+  height: 36px;
+  margin: 0 10px; /* 0 topo, fundo; 10px esquerda e direita */
+  display: flex;
+}
+#menu-principal ul li a {
+  font-family: var(--fonte-titulo);
+  height: 36px;
+  align-items: center;
+  display: flex;
+  padding: 0 10px;
+  color: var(--cor-texto);
+  text-decoration: none; /* Sem sublinhado */
+  background-color: var(--cor-secun);
+  transition: 300ms; /* Afeta a velocidade dos efeitos do hover */
+}
+/* Quando o mouse passa sobre o link do menu */
+#menu-principal ul li a:hover {
+  /* Filtro que escurece a cor do item (cor de frente + cor de fundo 
+    brightness < 1: escurece
+    brightness > 1: clareia
+  */
+  filter: brightness(1.2);
 }
 main {
   display: flex;
