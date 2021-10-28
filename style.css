@@ -23,6 +23,10 @@
   color: var(--cor-texto);*/
 }
 /*************************************************/
+html {
+  font-size: 16px;
+  scroll-behavior: smooth; /* Rolagem suave */
+}
 header {
   display: flex;
   justify-content: center;  /* centralização horizontal */
@@ -75,24 +79,110 @@ main {
   justify-content: center;  /* centralização horizontal */
   align-items: stretch;  /* filhos com 100% da altura do pai */
   min-height: 200px; /* altura mínima */
+  background-color: var(--cor-fundo-clara);
 }
+
 footer {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
+  justify-content: space-around;  /* distribui o espaço entre os itens filhos */
   align-items: center;  /* centralização vertical */
-  background-color: var(--cor-fundo-clara);
+  background-color: var(--cor-fundo);
   min-height: 50px; /* altura mínima */
+  padding: 20px;
+  color: var(--cor-texto);
 }
+
+/* Links dentro do footer */
+footer a {
+  color: var(--cor-prim);
+  text-decoration: none; /* sem sublinhado */
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 section {
   display: flex;
   justify-content: center;  /* centralização horizontal */
   align-items: center;  /* centralização vertical */
   flex-direction: column; /* itens filhos em coluna (na vertical) */
-  border: 1px solid indigo;
-  background-color: plum;
+  background-color: transparent;
   width: 75%;
-  margin: 5px;
+  margin: 20px;
 }
+
+/* Regra para o título h1 que está dentro de section */
+section > h1 { /* O sinal de > indica que serão atingidos apenas
+  os h1 FILHOS DIRETOS de section */
+  text-align: left;
+  width: 100%;
+  color: var(--cor-fundo);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 2rem;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Regra para os títulos h1 que estão dentro dos articles */
+article > h1 {
+  text-align: right;
+  width: 100%;
+  color: var(--cor-texto);
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+}
+
+/* Classe cartao-carro */
+.cartao-carro {
+  border: 1px solid var(--cor-fundo);
+  background-color: var(--cor-fundo);
+  width: 300px;
+  height: 360px;
+  margin: 20px;
+  border-radius: 16px;
+}
+
+/* Regra para link de .cartao-carro */
+.cartao-carro a {
+  text-decoration: none;  
+}
+
+.cartao-carro a div {
+  transition: 400ms;
+}
+
+/* Regra para o link de .cartao-carro quando o mouse sobrevoa */
+.cartao-carro a:hover div {
+  filter: brightness(1.2);
+  box-shadow: 3px 3px 6px rgba(255, 255, 255, 0.15);
+}
+
+/* Regra para a div interna de .cartao-carro */
+.cartao-carro div {
+  height: 360px;
+  border-radius: 16px;
+}
+
+/* Regra para imagens dentro de .cartao-carro */
+.cartao-carro img {
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.cartao-carro h1 {
+  margin: 20px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  color: var(--cor-secun);
+}
+
+.cartao-carro p {
+  color: var(--cor-texto);
+  margin: 0 20px;
+}
+
 aside {
   display: flex;
   justify-content: center;  /* centralização horizontal */
@@ -105,9 +195,9 @@ aside {
 article {
   display: flex;
   justify-content: center;  /* centralização horizontal */
+  flex-wrap: wrap;
   align-items: center;  /* centralização vertical */
-  border: 1px solid sienna;
-  background-color: linen;
+  background-color: transparent;
   margin: 5px;
   min-height: 100px;
   width: 100%;
